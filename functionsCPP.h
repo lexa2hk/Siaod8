@@ -57,9 +57,11 @@ void InsertionSortBinary(int *arr, int n){
     }
 }
 
-void poyphaseMergeSort(int* arr,int n){
+//многофазная сортировка слиянием
 
-}
+
+
+
 
 
 
