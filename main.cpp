@@ -19,8 +19,8 @@ int main() {
             int n;
             cin >> n;
             int *arrM = new int[n];
-            //for (int i = 0; i < n; i++) cin >> arrM[i];
-            fill_array(arrM,n);
+            //for (int i = 0; i < n; i++) arrM[i]=i;
+            //fill_array(arrM,n);
             for (int i = 0; i < n; i++) cout<<  arrM[i]<<" ";
             cout<<endl;
             cout << "Сортировка простого выбора" << endl;
@@ -31,9 +31,10 @@ int main() {
             break;
         }
         case 2:{
-            for(int n1=100;n1<=pow(10,5);n1*=10){
+            for(int n1=100;n1<=pow(10,6);n1*=10){
                 int *arr1 = new int[n1];
-                fill_array(arr1, n1);
+                //fill_array(arr1, n1);
+                for (int i = 0; i < n1; i++) arr1[i]=i;
                 cout<<"Бинарная сортировка вставками("<<n1<<")"<<endl;
                 auto start = chrono::steady_clock::now();
                 selectionSort(arr1, n1);
@@ -60,29 +61,6 @@ int main() {
             break;
         }
         case 4:{
-            break;
-        }
-        case -1:{
-            ofstream fout("output.txt");
-            int*arr=new int[100000];
-            fill_array(arr, pow(10,5));
-            for(int i=100;i<=pow(10,5);i+=1000){
-                int *arr1;
-                //copy arr to arr1
-                arr1=new int[i];
-                for(int j=0;j<i;j++){
-                    arr1[j]=arr[j];
-                }
-
-                auto start = chrono::steady_clock::now();
-                selectionSort(arr1, i);
-                auto end = chrono::steady_clock::now();
-                auto diff = end - start;
-                fout <<i<<" "<< chrono::duration <double, milli> (diff).count()<< endl;
-                delete[] arr1;
-            }
-            delete[] arr;
-            fout.close();
             break;
         }
         default:
