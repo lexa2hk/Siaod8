@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cmath>
 #include "functionsCPP.h"
+#include "listStack.h"
 using namespace std;
 
 
@@ -19,12 +20,14 @@ int main() {
             int n;
             cin >> n;
             int *arrM = new int[n];
-            //for (int i = 0; i < n; i++) arrM[i]=i;
-            //fill_array(arrM,n);
+            for (int i = 0; i < n; i++) arrM[i]=i;
+            fill_array(arrM,n);
             for (int i = 0; i < n; i++) cout<<  arrM[i]<<" ";
             cout<<endl;
-            cout << "Сортировка простого выбора" << endl;
-            selectionSort(arrM, n);
+            //cout << "Сортировка простого выбора" << endl;
+            //selectionSort(arrM, n);
+            //cout << "Сортировка бинарными вставками" << endl;
+            InsertionSortBinary(arrM, n);
             for (int i = 0; i < n; i++) {
                 cout << arrM[i] << " ";
             }
@@ -34,10 +37,10 @@ int main() {
             for(int n1=100;n1<=pow(10,6);n1*=10){
                 int *arr1 = new int[n1];
                 //fill_array(arr1, n1);
-                for (int i = 0; i < n1; i++) arr1[i]=i;
+                for (int i = 0; i < n1; i++) arr1[i]=n1-i;
                 cout<<"Бинарная сортировка вставками("<<n1<<")"<<endl;
                 auto start = chrono::steady_clock::now();
-                selectionSort(arr1, n1);
+                InsertionSortBinary(arr1, n1);
                 auto end = chrono::steady_clock::now();
                 auto diff = end - start;
                 cout << "Время выполнения: " << chrono::duration <double, milli> (diff).count() << " мс" << endl<<endl;
@@ -47,9 +50,9 @@ int main() {
             break;
         }
         case 3:{
-            for(int n1=100;n1<=pow(10,5);n1*=10){
+            for(int n1=100;n1<=pow(10,6);n1*=10){
                 int *arr1 = new int[n1];
-                fill_array(arr1, n1);
+                //fill_array(arr1, n1);
                 cout<<"Сортировка простого выбора("<<n1<<")"<<endl;
                 auto start = chrono::steady_clock::now();
                 selectionSort(arr1, n1);
@@ -61,7 +64,20 @@ int main() {
             break;
         }
         case 4:{
-            break;
+//            for(int n1=100;n1<=pow(10,4);n1*=10){
+//                cout<<"Многофазная сортировка("<<n1<<")"<<endl;
+//                ListStack<int> inputStack;
+//                for(int i=0;i<n1;i++) inputStack.AddEl(rand()%1000);
+//                //сколько будет лент? не понятно, но пока будет так
+//                ListStack<int> *sortingStacks = new ListStack<int>[n1+1]; //последняя лента будет пустой
+//                for()
+//
+//                auto start = chrono::steady_clock::now();
+//
+//                auto end = chrono::steady_clock::now();
+//                auto diff = end - start;
+//                cout << "Время выполнения: " << chrono::duration <double, milli> (diff).count() << " мс" << endl<<endl;
+//            break;
         }
         default:
             break;

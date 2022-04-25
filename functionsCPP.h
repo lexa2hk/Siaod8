@@ -4,6 +4,7 @@
 
 #ifndef SIAOD8_FUNCTIONSCPP_H
 #define SIAOD8_FUNCTIONSCPP_H
+#include "listStack.h"
 //случайное заполнение массива
 using namespace std;
 void fill_array(int *array, int size)
@@ -33,14 +34,17 @@ void selectionSort(int *arr, int n)
 }
 
 void InsertionSortBinary(int *arr, int n){
+    long long int count = 0;
     int current;
     int left, right, mid;
     for (int i = 0; i < n; i++){
+        count+=4;
         current = arr[i];
         left = 0;
         right = i;
         while (left < right)
         {
+            count+=4;
             mid = (left + right) / 2;
             if (arr[mid] <= current){
                 left = mid + 1;
@@ -50,15 +54,19 @@ void InsertionSortBinary(int *arr, int n){
         }
 
         for (int j = i; j > left; j--){
+            count+=2;
             arr[j] = arr[j - 1];
         }
 
         arr[left] = current;
     }
+    cout<<"Insertion sort binary: "<<count<<endl;
 }
 
 //многофазная сортировка слиянием
+void PolyphaseMergeSort(ListStack<int>* stack, int n){
 
+}
 
 
 
