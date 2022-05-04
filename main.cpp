@@ -9,7 +9,7 @@ using namespace std;
 
 
 int main() {
-    system("chcp 65001");
+    //system("chcp 65001");
     srand(time(NULL));
 
 
@@ -34,7 +34,7 @@ int main() {
             break;
         }
         case 2:{
-            for(int n1=100;n1<=pow(10,6);n1*=10){
+            for(int n1=100;n1<=pow(10,5);n1*=10){
                 int *arr1 = new int[n1];
                 //fill_array(arr1, n1);
                 for (int i = 0; i < n1; i++) arr1[i]=n1-i;
@@ -50,7 +50,7 @@ int main() {
             break;
         }
         case 3:{
-            for(int n1=100;n1<=pow(10,6);n1*=10){
+            for(int n1=100;n1<=pow(10,5);n1*=10){
                 int *arr1 = new int[n1];
                 //fill_array(arr1, n1);
                 cout<<"Сортировка простого выбора("<<n1<<")"<<endl;
@@ -64,20 +64,22 @@ int main() {
             break;
         }
         case 4:{
-//            for(int n1=100;n1<=pow(10,4);n1*=10){
-//                cout<<"Многофазная сортировка("<<n1<<")"<<endl;
-//                ListStack<int> inputStack;
-//                for(int i=0;i<n1;i++) inputStack.AddEl(rand()%1000);
-//                //сколько будет лент? не понятно, но пока будет так
-//                ListStack<int> *sortingStacks = new ListStack<int>[n1+1]; //последняя лента будет пустой
-//                for()
-//
-//                auto start = chrono::steady_clock::now();
-//
-//                auto end = chrono::steady_clock::now();
-//                auto diff = end - start;
-//                cout << "Время выполнения: " << chrono::duration <double, milli> (diff).count() << " мс" << endl<<endl;
-//            break;
+            for(int n1=100;n1<=pow(10,6);n1*=10) {
+                cout << "Сортировка слиянием(" << n1 << ")" << endl;
+                int *arr1 = new int[n1];
+                //for(int i=0;i<n1;i++) arr1[i]=n1-i;
+                fill_array(arr1, n1);
+
+
+                auto start = chrono::steady_clock::now();
+
+                mergeSort(arr1, 0, n1 - 1);
+
+                auto end = chrono::steady_clock::now();
+                auto diff = end - start;
+                cout << "Время выполнения: " << chrono::duration<double, milli>(diff).count() << " мс" << endl << endl;
+            }
+            break;
         }
         default:
             break;
