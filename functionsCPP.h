@@ -71,8 +71,7 @@ void merge(int *array, int const left, int const mid, int const right)
     int const subArrayOne = mid - left + 1;
     int const subArrayTwo = right - mid;
 
-    auto *leftArray = new int[subArrayOne],
-            *rightArray = new int[subArrayTwo];
+    auto *leftArray = new int[subArrayOne], *rightArray = new int[subArrayTwo];
 
     for (auto i = 0; i < subArrayOne; i++)
         leftArray[i] = array[left + i];

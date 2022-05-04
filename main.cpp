@@ -9,7 +9,7 @@ using namespace std;
 
 
 int main() {
-    //system("chcp 65001");
+    system("chcp 65001");
     srand(time(NULL));
 
 
@@ -69,8 +69,8 @@ int main() {
             for(int n1=100;n1<=pow(10,6);n1*=10) {
                 cout << "Сортировка слиянием(" << n1 << ")" << endl;
                 int *arr1 = new int[n1];
-                //for(int i=0;i<n1;i++) arr1[i]=n1-i;
-                fill_array(arr1, n1);
+                for(int i=0;i<n1;i++) arr1[i]=n1-i;
+                //fill_array(arr1, n1);
 
 
                 auto start = chrono::steady_clock::now();
