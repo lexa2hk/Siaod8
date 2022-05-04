@@ -27,7 +27,9 @@ int main() {
             //cout << "Сортировка простого выбора" << endl;
             //selectionSort(arrM, n);
             //cout << "Сортировка бинарными вставками" << endl;
-            InsertionSortBinary(arrM, n);
+            //InsertionSortBinary(arrM, n);
+            cout << "Сортировка слиянием" << endl;
+            mergeSort(arrM,0,n-1);
             for (int i = 0; i < n; i++) {
                 cout << arrM[i] << " ";
             }
